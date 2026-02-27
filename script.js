@@ -61,21 +61,3 @@ setInterval(function() {
     }
 }, 10);
 
-function updateGame() {
-    skor++;
-    document.getElementById("skor").innerText = "Skor: " + skor;
-
-    // 3. LOGIKA KECEPATAN: Setiap skor kelipatan 10, percepat kaktus
-    if (skor % 10 === 0 && kecepatanKaktus > 0.8) {
-        kecepatanKaktus -= 0.1; // Kurangi durasi animasi 0.1 detik
-        
-        // Terapkan kecepatan baru ke elemen kaktus
-        let kaktus = document.querySelector('.cactus'); // Pastikan class-nya bener
-        if (kaktus) {
-            kaktus.style.animationDuration = kecepatanKaktus + 's';
-        }
-        console.log("Kecepatan baru: " + kecepatanKaktus);
-    }
-}
-
-setInterval(updateGame, 1000);
