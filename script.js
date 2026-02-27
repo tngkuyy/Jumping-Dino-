@@ -77,3 +77,5 @@ function updateGame() {
         console.log("Kecepatan baru: " + kecepatanKaktus);
     }
 }
+
+setInterval(updateGame, 1000);
