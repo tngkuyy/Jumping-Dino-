@@ -1,0 +1,91 @@
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+
+#game-container {
+    width: 600px;
+    height: 200px;
+    border: 2px solid #333;
+    margin: 20px auto;
+    position: relative;
+    overflow: hidden;                
+    
+   
+    background-image: url('background.png'); 
+    background-repeat: repeat-x;     
+    background-size: auto 100%;     
+    background-position: 0px 0px; 
+    
+    /* ANIMASI LATAR (samakan waktunya dengan kaktus) */
+    animation: gerakLatar 2s infinite linear;                
+}
+
+@keyframes gerakLatar {
+    from { background-position: 0px 0px; }
+    to { background-position: -600px 0px; } 
+}
+
+#dino {
+    width: 50px; /* Sesuaikan lebar gambar dino kamu */
+    height: 50px; /* Sesuaikan tinggi gambar dino kamu */
+    /* Hapus background-color: #535353; */
+    
+    /* TAMBAHKAN INI */
+    background-image: url('dino.png'); /* Nama file gambar dino kamu */
+    background-size: cover; /* Agar gambar memenuhi kotak */
+    background-repeat: no-repeat;
+    
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    z-index: 10; /* Biar dino di depan kaktus */
+}
+
+.kaktus {
+    width: 30px; /* Sesuaikan lebar gambar kaktus */
+    height: 50px; /* Sesuaikan tinggi gambar kaktus */
+    /* Hapus background-color: #dc3545; */
+    
+    /* TAMBAHKAN INI */
+    background-image: url('kaktus.png'); /* Nama file gambar kaktus kamu */
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    position: absolute;
+    bottom: 0;
+    left: 600px;
+    animation: gerakKaktus 2s infinite linear;
+}
+
+#skor {
+    position: absolute;
+    top: 10px;  /* Jarak dari atas */
+    right: 20px; /* Jarak dari kanan */
+    font-family: 'Courier New', Courier, monospace; /* Font ala retro */
+    font-size: 20px;
+    font-weight: bold;
+    color: #535353;
+    z-index: 100; /* Biar skor selalu di depan kaktus */
+}
+
+/* Animasi untuk membuat kaktus bergerak dari kanan ke kiri */
+@keyframes gerakKaktus {
+    0% { left: 600px; }
+    100% { left: -20px; }
+}
+
+/* Kelas CSS untuk animasi lompat */
+.lompat {
+    animation: lompatDino 0.5s linear;
+}
+
+/* Animasi untuk membuat dino melompat ke atas dan kembali ke bawah */
+@keyframes lompatDino {
+    0% { bottom: 0; }
+    30% { bottom: 80px; } /* Titik tertinggi lompatan */
+    70% { bottom: 80px; } /* Tahan sedikit di atas */
+    100% { bottom: 0; }
+}
